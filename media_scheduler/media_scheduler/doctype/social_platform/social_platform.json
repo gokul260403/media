@@ -1,0 +1,291 @@
+{
+ "actions": [],
+ "autoname": "field:platform_name",
+ "creation": "2026-11-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "platform_name",
+  "enabled",
+  "adapter_type",
+  "adapter_key",
+  "column_break_1",
+  "api_version",
+  "char_limit",
+  "requires_media",
+  "media_types",
+  "oauth_section",
+  "authorize_url",
+  "token_url",
+  "scopes",
+  "client_id",
+  "client_secret",
+  "scope_separator",
+  "use_pkce",
+  "token_auth_method",
+  "extra_authorize_params",
+  "userinfo_url",
+  "account_id_path",
+  "account_name_path",
+  "redirect_uri",
+  "rest_section",
+  "publish_url",
+  "http_method",
+  "auth_scheme",
+  "auth_param_name",
+  "body_format",
+  "headers_template",
+  "body_template",
+  "post_id_path",
+  "platform_config"
+ ],
+ "fields": [
+  {
+   "fieldname": "platform_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Platform Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Enabled"
+  },
+  {
+   "default": "Generic REST",
+   "fieldname": "adapter_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Adapter Type",
+   "options": "Python Adapter\nGeneric REST",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.adapter_type=='Python Adapter'",
+   "description": "Key registered in an app's hooks.py under social_platform_adapters",
+   "fieldname": "adapter_key",
+   "fieldtype": "Data",
+   "label": "Adapter Key"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break",
+   "label": "Column Break 1"
+  },
+  {
+   "description": "Passed to the adapter / usable as {{ platform.api_version }} in templates",
+   "fieldname": "api_version",
+   "fieldtype": "Data",
+   "label": "Api Version"
+  },
+  {
+   "description": "0 = no limit",
+   "fieldname": "char_limit",
+   "fieldtype": "Int",
+   "label": "Char Limit"
+  },
+  {
+   "description": "Reject posts without media",
+   "fieldname": "requires_media",
+   "fieldtype": "Check",
+   "label": "Requires Media"
+  },
+  {
+   "description": "Allowed, comma separated: Image,Video. Empty = text only allowed",
+   "fieldname": "media_types",
+   "fieldtype": "Data",
+   "label": "Media Types"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "oauth_section",
+   "fieldtype": "Section Break",
+   "label": "OAuth"
+  },
+  {
+   "fieldname": "authorize_url",
+   "fieldtype": "Data",
+   "label": "Authorize Url"
+  },
+  {
+   "fieldname": "token_url",
+   "fieldtype": "Data",
+   "label": "Token Url"
+  },
+  {
+   "description": "Comma separated",
+   "fieldname": "scopes",
+   "fieldtype": "Small Text",
+   "label": "Scopes"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client Id"
+  },
+  {
+   "fieldname": "client_secret",
+   "fieldtype": "Password",
+   "label": "Client Secret"
+  },
+  {
+   "default": "Space",
+   "description": "How scopes are joined in the authorize URL (Meta uses Comma)",
+   "fieldname": "scope_separator",
+   "fieldtype": "Select",
+   "label": "Scope Separator",
+   "options": "Space\nComma"
+  },
+  {
+   "description": "Send a PKCE code challenge (needed by X/Twitter and others)",
+   "fieldname": "use_pkce",
+   "fieldtype": "Check",
+   "label": "Use Pkce"
+  },
+  {
+   "default": "Client Secret in Body",
+   "fieldname": "token_auth_method",
+   "fieldtype": "Select",
+   "label": "Token Auth Method",
+   "options": "Client Secret in Body\nBasic Auth Header"
+  },
+  {
+   "description": "Extra query params for the authorize URL, e.g. {\"access_type\": \"offline\"}",
+   "fieldname": "extra_authorize_params",
+   "fieldtype": "Code",
+   "label": "Extra Authorize Params",
+   "options": "JSON"
+  },
+  {
+   "description": "GET with the new token to identify the account (optional)",
+   "fieldname": "userinfo_url",
+   "fieldtype": "Data",
+   "label": "Userinfo Url"
+  },
+  {
+   "description": "Dotted path of the account ID in the userinfo reply, e.g. sub",
+   "fieldname": "account_id_path",
+   "fieldtype": "Data",
+   "label": "Account Id Path"
+  },
+  {
+   "description": "Dotted path of the display name, e.g. name",
+   "fieldname": "account_name_path",
+   "fieldtype": "Data",
+   "label": "Account Name Path"
+  },
+  {
+   "description": "Register EXACTLY this URL in the platform's developer console",
+   "fieldname": "redirect_uri",
+   "fieldtype": "Data",
+   "label": "Redirect Uri",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.adapter_type=='Generic REST'",
+   "fieldname": "rest_section",
+   "fieldtype": "Section Break",
+   "label": "Generic REST publishing"
+  },
+  {
+   "description": "Jinja allowed, e.g. {{ account_config.instance_url }}/api/v1/statuses. Must render to https.",
+   "fieldname": "publish_url",
+   "fieldtype": "Data",
+   "label": "Publish Url"
+  },
+  {
+   "default": "POST",
+   "fieldname": "http_method",
+   "fieldtype": "Select",
+   "label": "Http Method",
+   "options": "POST\nPUT\nPATCH"
+  },
+  {
+   "default": "Bearer",
+   "fieldname": "auth_scheme",
+   "fieldtype": "Select",
+   "label": "Auth Scheme",
+   "options": "Bearer\nCustom Header\nQuery Parameter"
+  },
+  {
+   "description": "Header or query parameter name for the token (Custom Header / Query Parameter)",
+   "fieldname": "auth_param_name",
+   "fieldtype": "Data",
+   "label": "Auth Param Name"
+  },
+  {
+   "default": "JSON",
+   "fieldname": "body_format",
+   "fieldtype": "Select",
+   "label": "Body Format",
+   "options": "JSON\nForm"
+  },
+  {
+   "description": "JSON object. Context: content, media, idempotency_key, account, account_config, platform, platform_config",
+   "fieldname": "headers_template",
+   "fieldtype": "Code",
+   "label": "Headers Template",
+   "options": "JSON"
+  },
+  {
+   "description": "JSON object. Use {{ content | tojson }} for text",
+   "fieldname": "body_template",
+   "fieldtype": "Code",
+   "label": "Body Template",
+   "options": "JSON"
+  },
+  {
+   "default": "id",
+   "description": "Dotted path in the JSON response, or header:<name>",
+   "fieldname": "post_id_path",
+   "fieldtype": "Data",
+   "label": "Post Id Path"
+  },
+  {
+   "description": "Platform-wide values for templates",
+   "fieldname": "platform_config",
+   "fieldtype": "Code",
+   "label": "Platform Config",
+   "options": "JSON"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Media Scheduler",
+ "name": "Social Platform",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Social Manager"
+  },
+  {
+   "read": 1,
+   "role": "Social Editor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "platform_name",
+ "track_changes": 1
+}

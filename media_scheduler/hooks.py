@@ -264,3 +264,37 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+
+# --- Social scheduler -----------------------------------------------------------
+
+before_install = "media_scheduler.install.ensure_roles"
+before_migrate = ["media_scheduler.install.ensure_roles"]
+
+scheduler_events = {
+	"cron": {
+		"* * * * *": ["media_scheduler.tasks.check_and_enqueue"],
+		"*/10 * * * *": ["media_scheduler.tasks.recover_stuck"],
+	},
+	"daily": ["media_scheduler.tasks.refresh_expiring_tokens"],
+}
+
+permission_query_conditions = {
+	"Social Post": "media_scheduler.permissions.social_post_query",
+	"Social Media Account": "media_scheduler.permissions.social_account_query",
+	"Publish Log": "media_scheduler.permissions.publish_log_query",
+}
+
+has_permission = {
+	"Social Post": "media_scheduler.permissions.has_workspace_permission",
+	"Social Media Account": "media_scheduler.permissions.has_workspace_permission",
+	"Publish Log": "media_scheduler.permissions.has_workspace_permission",
+}
+
+# Python adapters usable by "Social Platform" records (adapter_type = Python Adapter).
+# Other apps can add their own keys here.
+social_platform_adapters = {
+	"linkedin": ["media_scheduler.adapters.linkedin.LinkedInAdapter"],
+	"meta": ["media_scheduler.adapters.instagram.MetaAdapter"],
+}
+
+after_migrate = ["media_scheduler.install.seed_platforms"]

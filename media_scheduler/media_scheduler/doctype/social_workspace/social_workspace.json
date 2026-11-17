@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "autoname": "field:workspace_name",
+ "creation": "2026-11-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "workspace_name",
+  "is_active",
+  "timezone",
+  "column_break_1",
+  "max_accounts",
+  "max_posts_per_month"
+ ],
+ "fields": [
+  {
+   "fieldname": "workspace_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Workspace Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Is Active"
+  },
+  {
+   "default": "UTC",
+   "description": "IANA timezone, e.g. Asia/Kolkata",
+   "fieldname": "timezone",
+   "fieldtype": "Data",
+   "label": "Timezone"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break",
+   "label": "Column Break 1"
+  },
+  {
+   "default": "10",
+   "description": "0 = unlimited",
+   "fieldname": "max_accounts",
+   "fieldtype": "Int",
+   "label": "Max Accounts"
+  },
+  {
+   "default": "500",
+   "description": "0 = unlimited",
+   "fieldname": "max_posts_per_month",
+   "fieldtype": "Int",
+   "label": "Max Posts Per Month"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Media Scheduler",
+ "name": "Social Workspace",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Social Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "workspace_name",
+ "track_changes": 1
+}

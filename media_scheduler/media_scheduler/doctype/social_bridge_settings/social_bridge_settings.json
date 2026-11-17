@@ -1,0 +1,74 @@
+{
+ "actions": [],
+ "creation": "2026-11-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "publishing_section",
+  "max_retries",
+  "retry_backoff_seconds",
+  "media_wait_seconds",
+  "stuck_after_minutes",
+  "signed_url_ttl_seconds"
+ ],
+ "fields": [
+  {
+   "fieldname": "publishing_section",
+   "fieldtype": "Section Break",
+   "label": "Publishing"
+  },
+  {
+   "default": "3",
+   "fieldname": "max_retries",
+   "fieldtype": "Int",
+   "label": "Max Retries"
+  },
+  {
+   "default": "60,300,1800",
+   "description": "Comma separated delays between retries",
+   "fieldname": "retry_backoff_seconds",
+   "fieldtype": "Small Text",
+   "label": "Retry Backoff Seconds"
+  },
+  {
+   "default": "60",
+   "description": "Max wait for Instagram media processing",
+   "fieldname": "media_wait_seconds",
+   "fieldtype": "Int",
+   "label": "Media Wait Seconds"
+  },
+  {
+   "default": "15",
+   "fieldname": "stuck_after_minutes",
+   "fieldtype": "Int",
+   "label": "Stuck After Minutes"
+  },
+  {
+   "default": "3600",
+   "fieldname": "signed_url_ttl_seconds",
+   "fieldtype": "Int",
+   "label": "Signed Url Ttl Seconds"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Media Scheduler",
+ "name": "Social Bridge Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

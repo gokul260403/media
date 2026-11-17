@@ -1,0 +1,132 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-11-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "post",
+  "workspace",
+  "social_account",
+  "target_row",
+  "attempt",
+  "success",
+  "column_break_1",
+  "started_at",
+  "ended_at",
+  "response_status",
+  "platform_post_id",
+  "error_code",
+  "error_message"
+ ],
+ "fields": [
+  {
+   "fieldname": "post",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Post",
+   "options": "Social Post",
+   "reqd": 1
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Workspace",
+   "options": "Social Workspace",
+   "reqd": 1
+  },
+  {
+   "fieldname": "social_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Social Account",
+   "options": "Social Media Account"
+  },
+  {
+   "fieldname": "target_row",
+   "fieldtype": "Data",
+   "label": "Target Row"
+  },
+  {
+   "fieldname": "attempt",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Attempt"
+  },
+  {
+   "fieldname": "success",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Success"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break",
+   "label": "Column Break 1"
+  },
+  {
+   "fieldname": "started_at",
+   "fieldtype": "Datetime",
+   "label": "Started At"
+  },
+  {
+   "fieldname": "ended_at",
+   "fieldtype": "Datetime",
+   "label": "Ended At"
+  },
+  {
+   "fieldname": "response_status",
+   "fieldtype": "Data",
+   "label": "Response Status"
+  },
+  {
+   "fieldname": "platform_post_id",
+   "fieldtype": "Data",
+   "label": "Platform Post Id"
+  },
+  {
+   "fieldname": "error_code",
+   "fieldtype": "Data",
+   "label": "Error Code"
+  },
+  {
+   "description": "Sanitised: never contains tokens or secrets",
+   "fieldname": "error_message",
+   "fieldtype": "Small Text",
+   "label": "Error Message"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Media Scheduler",
+ "name": "Publish Log",
+ "naming_rule": "Random",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Social Manager"
+  },
+  {
+   "read": 1,
+   "role": "Social Editor"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

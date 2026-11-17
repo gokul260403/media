@@ -1,0 +1,176 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-11-06 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "account_name",
+  "workspace",
+  "platform",
+  "account_type",
+  "column_break_1",
+  "status",
+  "platform_account_id",
+  "owner_user",
+  "token_section",
+  "access_token",
+  "refresh_token",
+  "token_expires_at",
+  "extra_config",
+  "expiry_notified_at"
+ ],
+ "fields": [
+  {
+   "default": "SMA-.#####",
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "SMA-.#####"
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Account Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "workspace",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Workspace",
+   "options": "Social Workspace",
+   "reqd": 1
+  },
+  {
+   "fieldname": "platform",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Platform",
+   "options": "Social Platform",
+   "reqd": 1
+  },
+  {
+   "description": "e.g. Member Profile, Organization Page, Instagram Business",
+   "fieldname": "account_type",
+   "fieldtype": "Data",
+   "label": "Account Type"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break",
+   "label": "Column Break 1"
+  },
+  {
+   "default": "Connected",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Connected\nExpired\nNeeds Reauthorization\nDisabled"
+  },
+  {
+   "fieldname": "platform_account_id",
+   "fieldtype": "Data",
+   "label": "Platform Account Id",
+   "read_only": 1
+  },
+  {
+   "fieldname": "owner_user",
+   "fieldtype": "Link",
+   "label": "Owner User",
+   "options": "User"
+  },
+  {
+   "fieldname": "token_section",
+   "fieldtype": "Section Break",
+   "label": "Credentials (server side only)"
+  },
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Password",
+   "label": "Access Token"
+  },
+  {
+   "fieldname": "refresh_token",
+   "fieldtype": "Password",
+   "label": "Refresh Token"
+  },
+  {
+   "fieldname": "token_expires_at",
+   "fieldtype": "Datetime",
+   "label": "Token Expires At"
+  },
+  {
+   "description": "Per-account values for templates, e.g. {\"instance_url\": \"https://mastodon.social\"}",
+   "fieldname": "extra_config",
+   "fieldtype": "Code",
+   "label": "Extra Config",
+   "options": "JSON"
+  },
+  {
+   "fieldname": "expiry_notified_at",
+   "fieldtype": "Datetime",
+   "hidden": 1,
+   "label": "Expiry Notified At",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 0,
+ "istable": 0,
+ "links": [],
+ "modified": "2026-11-06 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Media Scheduler",
+ "name": "Social Media Account",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 0,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Social Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Social Editor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "account_name,platform",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "account_name",
+ "track_changes": 1
+}
